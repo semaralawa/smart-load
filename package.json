@@ -1,0 +1,25 @@
+{
+  "name": "smart-load",
+  "version": "1.0.0",
+  "description": "a system to monitor and maintain electricity in a solar power system via IoT and web server",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/semaralawa/smart-load.git"
+  },
+  "author": "Santa Semaralawa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/semaralawa/smart-load/issues"
+  },
+  "homepage": "https://github.com/semaralawa/smart-load#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.20"
+  }
+}
