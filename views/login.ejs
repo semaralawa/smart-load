@@ -24,7 +24,7 @@
     />
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+    <link href="css/sb-admin-2.css" rel="stylesheet" />
   </head>
 
   <body class="bg-gradient-primary">
@@ -36,14 +36,21 @@
             <div class="card-body p-0">
               <!-- Nested Row within Card Body -->
               <div class="row">
-                <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                <div
+                  class="col-lg-6 d-none d-lg-block bg-login-image"
+                  style="
+                    background: url('img/login.webp');
+                    background-position: center;
+                    background-size: cover;
+                  "
+                ></div>
                 <div class="col-lg-6">
                   <div class="p-5">
                     <div class="text-center">
                       <h1 class="h4 text-gray-900 mb-4">Log In</h1>
                     </div>
                     <form action="/login" method="post" class="user">
-                      <div class="form-group">
+                      <div class="form-group mb-0">
                         <input
                           type="text"
                           class="form-control form-control-user"
@@ -53,7 +60,10 @@
                           placeholder="Username atau Email...."
                         />
                       </div>
-                      <div class="form-group">
+                      <div class="small text-danger font-weight-bold pl-3">
+                        <%= locals.userError %>
+                      </div>
+                      <div class="form-group mb-0 mt-3">
                         <input
                           type="password"
                           class="form-control form-control-user"
@@ -62,7 +72,10 @@
                           placeholder="Password"
                         />
                       </div>
-                      <div class="form-group">
+                      <div class="small text-danger font-weight-bold pl-3">
+                        <%= locals.passwordError %>
+                      </div>
+                      <div class="form-group mt-3">
                         <div
                           class="custom-control custom-checkbox small text-center"
                         >
@@ -83,16 +96,10 @@
                         Login
                       </button>
                       <hr />
-                      <a
-                        href="index.html"
-                        class="btn btn-google btn-user btn-block"
-                      >
+                      <a href="#" class="btn btn-google btn-user btn-block">
                         <i class="fab fa-google fa-fw"></i> Login dengan Google
                       </a>
-                      <a
-                        href="index.html"
-                        class="btn btn-facebook btn-user btn-block"
-                      >
+                      <a href="#" class="btn btn-facebook btn-user btn-block">
                         <i class="fab fa-facebook-f fa-fw"></i> Login dengan
                         Facebook
                       </a>
@@ -105,7 +112,7 @@
                     </div>
                     <div class="text-center small">
                       Belum punya akun?
-                      <a href="register.html">Daftar</a>
+                      <a href="/register">Daftar</a>
                     </div>
                   </div>
                 </div>
