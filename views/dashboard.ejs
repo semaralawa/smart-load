@@ -433,7 +433,7 @@
                   aria-expanded="false"
                 >
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                    >Admin</span
+                    ><%= locals.userData.username %></span
                   >
                   <img
                     class="img-profile rounded-circle"
@@ -648,10 +648,10 @@
                   </div>
                   <!-- Card Body -->
                   <div class="card-body">
-                    <div class="chart-area">
+                    <div style="height: 25rem">
                       <canvas id="myAreaChart"></canvas>
                     </div>
-                    <div class="mt-4 text-center small">Waktu</div>
+                    <!-- <div class="mt-4 text-center small">Waktu</div> -->
                   </div>
                 </div>
               </div>
@@ -713,7 +713,7 @@
             >
               Cancel
             </button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <a class="btn btn-primary" href="/logout">Logout</a>
           </div>
         </div>
       </div>
@@ -733,6 +733,7 @@
     <script src="vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
+    <!-- <script src="js/demo/chart-linggih.js"></script> -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
   </body>
