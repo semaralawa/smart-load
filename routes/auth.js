@@ -26,7 +26,7 @@ router
     connection.query(
       "SELECT * FROM user WHERE username = ?",
       [user],
-      (error, results) => {
+      (err, results) => {
         if (results == 0) {
           res.render("login", {
             userError: "username tidak terdaftar",
@@ -61,9 +61,15 @@ router
       return;
     }
     delete data.repeatPassword;
-    let sql = "INSERT INTO user SET ?";
-    connection.query(sql, [data], (error, results) => {
-      if (error) throw error;
+
+    // insert user data to database
+    connection.query("INSERT INTO user SET ?", [data], (err, results) => {
+      if (err) {
+        console.log(err);
+        // throw err;
+        res.render("register", { passwordError: "username telah ada" });
+        return;
+      }
       req.session.username = results[0].username;
       console.log("new user added");
       res.redirect("/dashboard");
