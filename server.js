@@ -31,6 +31,13 @@ function userCheck(req, res, next) {
   }
 }
 
+// data log
+function logger(req, res, next) {
+  console.log(`${req.ip} --------- ${req.method} ${req.originalUrl}`);
+  next();
+}
+app.use(logger);
+
 // route
 app.get("/", function (req, res) {
   if (req.session.username) {
@@ -46,6 +53,8 @@ app.get("/dashboard", userCheck, function (req, res) {
 
 authRouter = require("./routes/auth");
 app.use(authRouter);
+iotRouter = require("./routes/iot");
+app.use(iotRouter);
 
 app.listen(process.env.PORT, "0.0.0.0", function () {
   console.log(`server started, visit http://localhost:${process.env.PORT}`);
